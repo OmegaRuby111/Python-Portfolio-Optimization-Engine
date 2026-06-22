@@ -2,6 +2,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sb
 
 def visualize(returns,spy_returns,window=30):
     fig,axes=plt.subplots(2,1,figsize=(12,12))
@@ -28,5 +29,13 @@ def visualize(returns,spy_returns,window=30):
     axes[1].legend(["Portfolio", "SPY"])
     axes[1].grid(True,alpha=0.3)
 
+    plt.tight_layout()
+    return fig
+
+def plot_corr_heatmap(log_returns):
+    fig,ax=plt.subplots(figsize=(8,6))
+    corr=log_returns.corr()
+    sb.heatmap(corr,annot=True,fmt=".2f",cmap="coolwarm",center=0,ax=ax,linewidths=0.5)
+    ax.set_title("Asset Correlation Heatmap")
     plt.tight_layout()
     return fig
