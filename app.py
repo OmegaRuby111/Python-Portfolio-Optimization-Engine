@@ -2,11 +2,12 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+import seaborn as sb
 from data_loader import load_data
 from optimizer import optimize
 from backtester import backtest
 from risk_metrics import compute_metrics
-from visualizer import visualize
+from visualizer import visualize,plot_corr_heatmap
 
 with st.sidebar:
     st.header("Portfolio Configuration")
@@ -75,6 +76,7 @@ if st.button("Compute!"):
     st.session_state["avg_turnover"]=bt_results["turnover"].mean()
     st.session_state["rebalancing_frequency"]=rebalancing_frequency
     st.session_state["rolling_window"]=rolling_window
+    st.session_state["log_returns"] = log_returns
 
 if "bt_results" in st.session_state:
     bt_results=st.session_state["bt_results"]
@@ -86,6 +88,7 @@ if "bt_results" in st.session_state:
     rolling_window=st.session_state["rolling_window"]
     portfolio_results=bt_results["returns"]
     spy_results=bt_results["spy_returns"]
+    log_returns=st.session_state["log_returns"]
 
     st.header("RESULTS")
     st.subheader("Portfolio Weights")
@@ -102,3 +105,7 @@ if "bt_results" in st.session_state:
     st.subheader("Performance")
     fig=visualize(portfolio_results,spy_results,window=int(rolling_window))
     st.pyplot(fig)
+
+    st.subheader("Correlation Matrix")
+    fig_corr = plot_corr_heatmap(log_returns)
+    st.pyplot(fig_corr)
