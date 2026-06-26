@@ -11,6 +11,7 @@ from visualizer import visualize, plot_corr_heatmap, plot_max_drawdown, plot_rol
 
 with st.sidebar:
     st.header("Portfolio Configuration")
+    st.caption("Minimum 2 years of data recommended for reliable backtesting.")
     n_assets=st.number_input("Number of Assets",min_value=1,value=3,step=1)
     tickers=[]
     for i in range(n_assets):
