@@ -44,7 +44,7 @@ with st.sidebar:
         method=st.selectbox("Method",["gradient_descent","slsqp"])
         if lr>0.1:
             st.warning("High learning rate may cause the optimizer to not converge.")
-    backtest_lookback=st.number_input("Backtester Lookback (days)",min_value=30,value=252,step=1)
+    backtest_lookback=st.number_input("Parameter Estimation Period (days)",min_value=30,value=252,step=1)
     rebalancing_frequency=st.number_input("Rebalancing Frequency (days)",min_value=1,value=7,step=1)
     rolling_window=st.number_input("Rolling Window (days)",min_value=5,value=30,step=1)
 
