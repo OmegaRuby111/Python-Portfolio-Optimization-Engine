@@ -1,6 +1,11 @@
 # Python Portfolio Optimization Engine
 
 A quantitative portfolio optimization and backtesting engine built with Python and Streamlit. Supports multiple allocation strategies, walk-forward backtesting, risk analytics, and SPY benchmark comparison.
+## Live Demo
+[Launch App](https://python-portfolio-optimization-engine-ijy95dabgzegemdwhri75q.streamlit.app/)
+
+## How It Works
+The engine uses a walk-forward backtesting framework. At each rebalancing period, weights are computed using only historical data available up to that point (lookback window), applied to the subsequent forward period, and portfolio value is compounded across periods. Transaction costs are deducted as a percentage of turnover at each rebalance. Risk metrics are computed on the resulting return series.
 
 ## Features
 
@@ -36,6 +41,7 @@ A quantitative portfolio optimization and backtesting engine built with Python a
 - yfinance
 - Matplotlib
 - SciPy
+- Seaborn
 
 ## Installation
 
