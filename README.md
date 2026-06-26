@@ -62,12 +62,14 @@ streamlit run app.py
 5. Click Compare with SPY(S&P500) to view benchmark metrics
 
 ## Project Structure
+```
 app.py            # Streamlit UI
 data_loader.py    # Price data fetching via yfinance
 optimizer.py      # Strategy implementations
 backtester.py     # Walk-forward backtesting engine
 risk_metrics.py   # Risk and performance metrics
 visualizer.py     # Cumulative returns, rolling Sharpe, drawdown, correlation heatmap
+```
 
 ## Notes
 - All returns are log returns
