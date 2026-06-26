@@ -4,7 +4,7 @@ import yfinance as yf
 
 def load_data(ticker_list,start_date,end_date):
     data=yf.download(tickers=ticker_list,start=start_date,end=end_date,progress=False,auto_adjust=True)
-    data_close=data["Close"]
+    data_close = data["Close"]
     if isinstance(data_close.columns, pd.MultiIndex):
         data_close.columns = data_close.columns.get_level_values(0)
     valid_tickers=[]
