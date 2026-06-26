@@ -9,6 +9,10 @@ from backtester import backtest
 from risk_metrics import compute_metrics
 from visualizer import visualize, plot_corr_heatmap, plot_max_drawdown, plot_rolling_sharpe
 
+st.set_page_config(page_title="Portfolio Optimizer", layout="wide")
+st.title("Portfolio Optimization Engine")
+st.markdown("Backtest and compare portfolio strategies against SPY benchmark.")
+
 with st.sidebar:
     st.header("Portfolio Configuration")
     st.caption("Minimum 2 years of data recommended for reliable backtesting.")
