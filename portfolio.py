@@ -27,5 +27,3 @@ def calc_portfolio_analytical_VaR(weights,log_returns,confidence_level=0.95):
     port_vol=portfolio_daily_returns.std()
     z_c = stats.norm.ppf(1 - confidence_level)
     return -(port_mean + z_c * port_vol)
-
-#portfolio.py so far
