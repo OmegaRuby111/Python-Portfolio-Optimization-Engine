@@ -57,8 +57,8 @@ streamlit run app.py
 1. Enter tickers and date range in the sidebar
 2. Select a strategy and configure its parameters
 3. Set backtester lookback and rebalancing frequency
-4. Click **Compute!**
-5. Click **Compare with SPY(S&P500)** to view benchmark metrics
+4. Click Compute!
+5. Click Compare with SPY(S&P500) to view benchmark metrics
 
 ## Project Structure
 
