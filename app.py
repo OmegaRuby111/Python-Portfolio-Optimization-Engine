@@ -7,7 +7,7 @@ from data_loader import load_data
 from optimizer import optimize
 from backtester import backtest
 from risk_metrics import compute_metrics
-from visualizer import visualize,plot_corr_heatmap
+from visualizer import visualize, plot_corr_heatmap, plot_max_drawdown, plot_rolling_sharpe
 
 with st.sidebar:
     st.header("Portfolio Configuration")
@@ -109,3 +109,11 @@ if "bt_results" in st.session_state:
     st.subheader("Correlation Matrix")
     fig_corr = plot_corr_heatmap(log_returns)
     st.pyplot(fig_corr)
+
+    st.subheader("Max Drawdown")
+    fig_drawdown = plot_max_drawdown(portfolio_results,spy_results)
+    st.pyplot(fig_drawdown)
+
+    st.subheader("Rolling Sharpe Ratio")
+    fig_sharpe = plot_rolling_sharpe(portfolio_results,spy_results,rolling_window)
+    st.pyplot(fig_sharpe)
