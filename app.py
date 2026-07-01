@@ -104,7 +104,7 @@ if "bt_results" in st.session_state:
     st.metric("Average Turnover",f"{round(avg_turnover*100,2)}%")
 
     if st.button("Compare with SPY(S&P500)"):
-        spy_metrics=compute_metrics(spy_results,freq=rebalancing_frequency)
+        spy_metrics=compute_metrics(spy_results,rf=rf,freq=rebalancing_frequency)
         st.dataframe(pd.DataFrame(spy_metrics,index=["Value"]).T)
 
     st.subheader("Performance")
