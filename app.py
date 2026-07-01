@@ -30,13 +30,11 @@ with st.sidebar:
         "Risk Parity":"risk_parity",
         "Momentum Based":"momentum_based"
     }
-    rf=0.0
+    rf=st.number_input("Risk-Free Rate",value=0.07,step=0.01)
     lookback_periods=126
     lr=0.01
     iters=10000
-    if strategy=="Maximum Sharpe":
-        rf=st.number_input("Risk-Free Rate",value=0.0,step=0.01)
-    elif strategy=="Momentum Based":
+    if strategy=="Momentum Based":
         lookback_periods=st.number_input("Lookback Periods",value=126,step=1)
     elif strategy=="Risk Parity":
         lr=st.number_input("Learning Rate",value=0.01)
