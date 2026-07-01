@@ -73,7 +73,7 @@ if st.button("Compute!"):
         **kwargs
     )
     weights=optimize(strategy_map[strategy],log_returns,**kwargs)
-    metrics=compute_metrics(bt_results["returns"],freq=rebalancing_frequency)
+    metrics=compute_metrics(bt_results["returns"],rf=rf,freq=rebalancing_frequency)
     st.session_state["bt_results"]=bt_results
     st.session_state["metrics"]=metrics
     st.session_state["weights"]=weights
